@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-6">
             <h2>Input Kategori </h2>
-                <form method="post" >
+                <form method="post" action="{{route('admin.storekategori')}}" >
+                    @csrf
                     <div class="mb-3">
                         <label for="namaBuku" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" name="nama" >
@@ -22,6 +23,14 @@
 
 
                 </form>
+
+                @if (session('error'))
+                    {{session('error')}}
+                @endif
+
+                @if(session('success'))
+                    {{session('success')}}
+                @endif
             </div>
         </div>
     </div>
@@ -48,4 +57,5 @@
     @endforelse
 
     </table>
+@endsection
 
